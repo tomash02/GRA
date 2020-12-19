@@ -73,10 +73,16 @@ def redraw(bgx1, bgx2):
 
 
 def menu():
+    menutext = font.render('Shift - Strzelanie', 1, (255, 255, 255))
+    menutext1 = font.render('w, s, a, d - poruszanie się', 1, (255, 255, 255))
+    menutext2 = font.render('wciśnij  dwukrotnie esc aby kontynuwać', 1, (255, 255, 255))
     menubg = pygame.Surface((900, 480))
     menubg.set_alpha(230)
     menubg.fill((9, 13, 71))
     win.blit(menubg, (0, 0))
+    win.blit(menutext, (338, 100))
+    win.blit(menutext1, (290, 200))
+    win.blit(menutext2, (200, 300))
     menurun = True
     while menurun:
         pygame.display.update()
@@ -105,7 +111,7 @@ def bulletspeed():
     vy = v * sin(A_angle)
     return vx, vy
 
-
+menu()
 while run:
     clock.tick(27)
     keys = pygame.key.get_pressed()
